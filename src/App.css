@@ -1,0 +1,27 @@
+.App {
+  padding: 30px;
+  display: flex;
+}
+
+.App > div {
+  margin-right: 50px;
+}
+
+.isDone {
+  font-weight: bold;
+  opacity: 0.5;
+  color: cornflowerblue;
+  text-decoration: line-through;
+}
+
+.btn-active {
+  font-weight: bold;
+  color: white;
+  background-color: chartreuse;
+  border-color: darkgray;
+}
+
+.error {
+  border: 2px solid red;
+  outline: none;
+}
