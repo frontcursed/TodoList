@@ -1,4 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import {IconButton, TextField} from "@material-ui/core";
+import {AddBoxOutlined} from "@material-ui/icons";
 
 
 type AddItemPropsType = {
@@ -25,15 +27,21 @@ const AddItemForm = (props: AddItemPropsType) => {
     const onKeyDownEnterAddItem = (e: KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && onClickAddItem()
     return (
         <div>
-            <input
+            <TextField
+                size={'small'}
+                variant={'outlined'}
                 value={title}
                 onChange={onChangeSetLocalTitle}
                 onKeyDown={onKeyDownEnterAddItem}
-                className={error ? 'error' : ''}
-                placeholder={props.placeholder}
+                label={props.placeholder}
+                error={error}
+                helperText={error && 'Title is required'}
             />
-            <button onClick={onClickAddItem}>+</button>
-            {error && <div style={{fontWeight: 'bold', color: 'red'}}>Title is required</div>}
+            <IconButton
+                aria-label='add-task'
+                onClick={onClickAddItem}>
+                <AddBoxOutlined/>
+            </IconButton>
         </div>
     );
 };
